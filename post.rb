@@ -36,6 +36,10 @@ class Post
 
         file_name = @created_at.strftime("#{self.class.name}_%Y-%m-%d_%H-%M-%S.txt")
 
+        unless Dir.entries(current_path).include?("files")
+            Dir.mkdir("files")
+        end
+
         current_path + "/files/" + file_name
     end
 end
